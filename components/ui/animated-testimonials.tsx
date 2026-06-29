@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatedTooltipPreview } from "@/component/animatedTooltipPreview";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -147,19 +148,61 @@ export const AnimatedTestimonials = ({
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-7 w-7 items-center justify-center  dark:bg-neutral-800"
             >
               <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+
+
+
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-7 w-7 items-center justify-center  rounded-full dark:bg-neutral-800 hover:cursor-pointer "
             >
-              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+              <IconArrowRight className="h-5 w-5 transition-transform  duration-300 group-hover/button:-rotate-12 text-black dark:text-neutral-400" />
             </button>
+
           </div>
+
+
+
+
+
+          <div className="mt-8 flex items-center gap-4">
+            <div className="flex shrink-0 items-left gap-4">
+              <AnimatedTooltipPreview />
+            </div>
+
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-neutral-900 dark:text-white">
+                2,000+ teams
+              </p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                using this product every day
+              </p>
+            </div> 
+          </div> 
+
+
+
+
+
+
+
         </div>
       </div>
     </div>
   );
-};
+}
+
+
+
+
+
+
+
+
+
+
+
+
