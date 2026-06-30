@@ -1,5 +1,6 @@
 import { AnimatedTooltipPreview } from '@/component/animatedTooltipPreview'
 import HeroPage from '@/component/hero'
+import Footer from '@/components/footer'
 
 
 
@@ -12,6 +13,7 @@ const page = () => {
     {/* <AnimatedTestimonialsDemo/> */}
     
     {/* <AnimatedTooltipPreview/> */}
+   
 
     
     </div>
