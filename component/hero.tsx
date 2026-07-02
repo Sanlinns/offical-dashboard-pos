@@ -84,7 +84,7 @@ const navItems: NavItem[] = [
     children: [
       {
         title: "Supermarket POS",
-        href: "#supermarket",
+        href: "supermarket",
         description: "Barcode-first checkout for mini marts and supermarkets.",
         icon: Store,
       },
