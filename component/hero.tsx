@@ -32,6 +32,7 @@ import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { Terminal } from "./ui/terminal";
 import { PosFeatureIsometricSection } from "./pos-feature-isometric-section";
 import { TracingBeamSection } from "./tracingBeamDemo";
+import Footer from "./footer";
 
 type NavChild = {
   title: string;
@@ -669,9 +670,10 @@ export default function HeroPage() {
         </section>
       </div>
 
-      {/* New section - no hero image background here */}
+  
       <PosFeatureIsometricSection darkMode={darkMode} />
-      {/* <TracingBeamSection darkMode={darkMode} /> */}
+      <Footer darkMode={darkMode} />
+     
       
     </main>
   );

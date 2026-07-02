@@ -1,3 +1,4 @@
+
 "use client";
 
 import { AnimatedTooltipPreview } from "@/component/animatedTooltipPreview";
@@ -12,6 +13,7 @@ type Testimonial = {
   designation: string;
   src: string;
 };
+
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
@@ -21,11 +23,20 @@ export const AnimatedTestimonials = ({
 }) => {
   const [active, setActive] = useState(0);
 
+  // Hydration error မဖြစ်အောင် client mount ပြီးမှ render လုပ်ပါမယ်
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const handleNext = () => {
+    if (testimonials.length === 0) return;
     setActive((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
+    if (testimonials.length === 0) return;
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
@@ -34,15 +45,26 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
-    if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [autoplay]);
+    if (!autoplay) return;
+    if (testimonials.length === 0) return;
+
+    const interval = setInterval(handleNext, 5000);
+
+    return () => clearInterval(interval);
+  }, [autoplay, active, testimonials.length]);
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
+
+  if (!mounted) {
+    return null;
+  }
+
+  if (testimonials.length === 0) {
+    return null;
+  }
+
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
@@ -93,6 +115,7 @@ export const AnimatedTestimonials = ({
             </AnimatePresence>
           </div>
         </div>
+
         <div className="flex flex-col justify-between py-4">
           <motion.div
             key={active}
@@ -116,9 +139,11 @@ export const AnimatedTestimonials = ({
             <h3 className="text-2xl font-bold text-black dark:text-white">
               {testimonials[active].name}
             </h3>
+
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>
+
             <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
@@ -145,64 +170,41 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
-            <button
-              onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center  dark:bg-neutral-800"
-            >
-              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
 
+          <div className="flex items-end justify-between gap-4 pt-12 md:pt-0">
+            <div className="flex gap-4">
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="group/button flex h-7 w-7 items-center justify-center dark:bg-neutral-800"
+              >
+                <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+              </button>
 
-
-            </button>
-            <button
-              onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center  rounded-full dark:bg-neutral-800 hover:cursor-pointer "
-            >
-              <IconArrowRight className="h-5 w-5 transition-transform  duration-300 group-hover/button:-rotate-12 text-black dark:text-neutral-400" />
-            </button>
-
-          </div>
-
-
-
-
-
-          <div className="mt-8 flex items-center gap-4">
-            <div className="flex shrink-0 items-left gap-4">
-              <AnimatedTooltipPreview />
+              <button
+                type="button"
+                onClick={handleNext}
+                className="group/button flex h-7 w-7 items-center justify-center rounded-full dark:bg-neutral-800 hover:cursor-pointer"
+              >
+                <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+              </button>
             </div>
 
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-neutral-900 dark:text-white">
-                2,000+ teams
-              </p>
-              <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                using this product every day
-              </p>
-            </div> 
-          </div> 
+            <div className="">
+              <AnimatedTooltipPreview />
 
-
-
-
-
-
-
+              <div className="hidden sm:block min-w-0">
+                <p className="text-sm font-semibold text-neutral-900 dark:text-white">
+                  2,000+ teams
+                </p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                  using this product every day
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-}
-
-
-
-
-
-
-
-
-
-
-
-
+};
