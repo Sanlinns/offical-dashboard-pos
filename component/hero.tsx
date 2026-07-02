@@ -32,7 +32,7 @@ import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { Terminal } from "./ui/terminal";
 import { PosFeatureIsometricSection } from "./pos-feature-isometric-section";
 import { TracingBeamSection } from "./tracingBeamDemo";
-import Footer from "./footer";
+import Footer from "@/components/footer";
 
 type NavChild = {
   title: string;
@@ -84,7 +84,7 @@ const navItems: NavItem[] = [
     children: [
       {
         title: "Supermarket POS",
-        href: "#supermarket",
+        href: "supermarket",
         description: "Barcode-first checkout for mini marts and supermarkets.",
         icon: Store,
       },
@@ -670,10 +670,10 @@ export default function HeroPage() {
         </section>
       </div>
 
-  
+      {/* New section - no hero image background here */}
       <PosFeatureIsometricSection darkMode={darkMode} />
+      {/* <TracingBeamSection darkMode={darkMode} /> */}
       <Footer darkMode={darkMode} />
-     
       
     </main>
   );
