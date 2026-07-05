@@ -8,7 +8,7 @@ const cardImage =
 
 export function WobbleCardDemo() {
   return (
-    <div className="mx-auto grid w-full max-w-[88rem] grid-cols-1 gap-6 lg:grid-cols-3">
+    <div className="mx-auto grid w-full max-w-[88rem] grid-cols-1 gap-6 lg:grid-cols-3 mt-10">
       {/* Big Card 1 */}
       <WobbleCard
         containerClassName="relative col-span-1 min-h-[560px] overflow-hidden bg-pink-800 lg:col-span-2 lg:min-h-[420px]"
