@@ -14,6 +14,7 @@ import {
 import { IsometricBox } from "./ui/isometric-box";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import AnimatedBadge from "@/components/ui/animated-badge";
 
 type Feature = {
   title: string;
@@ -303,8 +304,11 @@ function TracingBeamContent({ darkMode }: { darkMode: boolean }) {
               : "border-slate-200 bg-white/75 text-slate-700"
           }`}
         >
+           <AnimatedBadge color="#38bdf8" />
           POS Workflow
         </motion.div>
+
+        
 
         <motion.h2
           initial={{ opacity: 0, y: 18 }}
@@ -315,6 +319,7 @@ function TracingBeamContent({ darkMode }: { darkMode: boolean }) {
             darkMode ? "text-white" : "text-slate-950"
           }`}
         >
+         
           A cleaner way to run your shop every day.
         </motion.h2>
 

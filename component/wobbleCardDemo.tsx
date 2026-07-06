@@ -33,7 +33,7 @@ export function WobbleCardDemo() {
           alt="dashboard analytics preview"
           className="absolute bottom-[-90px] right-[-120px] z-0 h-[360px] w-[520px] rounded-3xl object-cover opacity-100 brightness-110 saturate-125 contrast-105 shadow-2xl shadow-black/30 md:h-[420px] md:w-[620px] lg:bottom-[-120px] lg:right-[-180px]"
         />
-
+c
         {/* Softer Overlay */}
         <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-pink-800 via-pink-800/50 to-transparent" />
       </WobbleCard>

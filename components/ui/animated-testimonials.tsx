@@ -387,7 +387,7 @@ export const AnimatedTestimonials = ({
                 onClick={handlePrev}
                 className="group/button flex h-7 w-7 items-center justify-center dark:bg-neutral-800"
               >
-                <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+                <IconArrowLeft className="h-5 w-5  transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
               </button>
 
               <button
@@ -401,15 +401,6 @@ export const AnimatedTestimonials = ({
 
             <div className=" flex items-center">
               <AnimatedTooltipPreview />
-
-              {/* <div className="hidden min-w-0 flex-col gap-1 md:flex">
-                <p className="text-sm font-semibold text-neutral-900 dark:text-white">
-                  2,000+ teams
-                </p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                  using this product every day
-                </p>
-              </div> */}
             </div>
           </div>
         </div>

@@ -33,6 +33,7 @@ import { Terminal } from "./ui/terminal";
 import { PosFeatureIsometricSection } from "./pos-feature-isometric-section";
 import { TracingBeamSection } from "./tracingBeamDemo";
 import Footer from "@/components/footer";
+import AnimatedBadge from "@/components/ui/animated-badge";
 
 type NavChild = {
   title: string;
@@ -90,7 +91,7 @@ const navItems: NavItem[] = [
       },
       {
         title: "Restaurant POS",
-        href: "#restaurant",
+        href: "restaurant",
         description: "Tables, orders, kitchen view and payment workflow.",
         icon: Utensils,
       },
@@ -471,6 +472,11 @@ export default function HeroPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               >
+
+                <AnimatedBadge color="#38bdf8" />
+
+
+
                 <div
                   className={`mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold backdrop-blur-xl ${
                     darkMode
