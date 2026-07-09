@@ -521,14 +521,34 @@ export function HeroScrollDemo() {
           >
             <div className="relative h-full w-full overflow-hidden rounded-2xl bg-slate-950">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10" />
-              <img
+              {/* <img
                 src="/supermarketv1.0.png"
                 alt="hero"
                 height={720}
                 width={1400}
                 className="h-fullw-full object-contain"
                 draggable={false}
-              />
+              /> */}
+
+
+
+              <picture className="relative z-10 flex h-full w-full items-center justify-center">
+                <source media="(max-width: 767px)" srcSet="/supermarket-mobile.png" />
+                <source media="(min-width: 768px)" srcSet="/supermarketv1.0.png" />
+
+                <img
+                  src="/supermarketv1.0.png"
+                  alt="Supermarket POS preview"
+                  height={720}
+                  width={1400}
+                  className="object-contain"
+                  draggable={false}
+                />
+              </picture>
+
+
+
+
             </div>
           </ContainerScroll>
         </section>
@@ -536,29 +556,29 @@ export function HeroScrollDemo() {
 
 
         <section>
-          <AppleCardsCarouselDemo/>
+          <AppleCardsCarouselDemo />
         </section>
 
-       
+
         <section>
-          <BentoGridThirdDemo/>
-       
+          <BentoGridThirdDemo />
+
         </section>
 
-         <section>
+        <section>
           <WobbleCardDemo />
-       
+
         </section>
         <section>
-             <InfiniteMovingCardsDemo/>
+          <InfiniteMovingCardsDemo />
         </section>
         <section>
           <Footer darkMode={darkMode} />
         </section>
-      
 
 
-        
+
+
       </main>
     </div>
   );
