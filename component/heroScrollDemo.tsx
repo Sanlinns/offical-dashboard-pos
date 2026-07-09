@@ -522,16 +522,17 @@ export function HeroScrollDemo() {
             <div className="relative h-full w-full overflow-hidden rounded-2xl bg-slate-950">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10" />
               <img
-                src="/hero-bg.png"
+                src="/supermarketv1.0.png"
                 alt="hero"
                 height={720}
                 width={1400}
-                className="mx-auto h-full w-full object-cover object-left-top"
+                className="h-fullw-full object-contain"
                 draggable={false}
               />
             </div>
           </ContainerScroll>
         </section>
+
 
 
         <section>
