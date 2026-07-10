@@ -18,6 +18,7 @@ import { ResponseCookies } from "next/dist/compiled/@edge-runtime/cookies";
 import RestaurantFeaturesSection from "./restaurant/restaurantFeaturesSection";
 import RestaurantWorkflowSection from "./restaurant/RestaurantWorkflowSection";
 import RestaurantMenuTableSection from "./restaurant/RestaurantMenuTableSection";
+import RestaurantFooter from "./restaurant/RestaurantFooter";
 
 const navLinks = [
     { label: "Home", href: "/" },
@@ -282,6 +283,7 @@ export function ImagesSliderDemo() {
             <RestaurantFeaturesSection/>
             <RestaurantWorkflowSection/>
             <RestaurantMenuTableSection/>
+            <RestaurantFooter/>
 
 
           

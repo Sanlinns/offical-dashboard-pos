@@ -97,7 +97,7 @@ const navItems: NavItem[] = [
       },
       {
         title: "Fashion Store",
-        href: "#fashion",
+        href: "fashion",
         description: "Product variants, categories and fast selling screen.",
         icon: PackageCheck,
       },
