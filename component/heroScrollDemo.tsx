@@ -26,6 +26,12 @@ import { InfiniteMovingCardsDemo } from "./infiniteMovingCardsDemo";
 import { BentoGridThirdDemo } from "./bentoGridThirdDemo";
 import { AppleCardsCarouselDemo } from "./ui/appleCardsCarouselDemo";
 import Footer from "./footer";
+import Image from "next/image";
+
+
+
+const BRAND_NAME = "Binhlaig";
+const BRAND_ICON = "/logo/bg.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -348,14 +354,25 @@ export function HeroScrollDemo() {
       <header className="fixed left-0 top-0 z-50 w-full px-3 pt-3">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-white/70 bg-white/75 px-4 shadow-lg shadow-slate-900/5 backdrop-blur-2xl transition-all duration-300 dark:border-white/10 dark:bg-slate-950/65 dark:shadow-black/20 sm:px-6 lg:px-8">
           <Link href="/" className="group flex items-center gap-3">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-600/25 transition-transform duration-300 group-hover:scale-105">
+            {/* <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-600/25 transition-transform duration-300 group-hover:scale-105">
               <Sparkles className="h-5 w-5" />
               <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-white dark:ring-slate-950" />
-            </div>
+            </div> */}
+
+            <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+              <Image
+                src={BRAND_ICON}
+                alt=""
+                fill
+                sizes="32px"
+                className="object-contain"
+              />
+            </span>
 
             <div className="leading-tight">
               <span className="block text-base font-black tracking-tight text-slate-950 dark:text-white">
-                ScrollUI
+                {/* ScrollUI */}
+                 {BRAND_NAME}
               </span>
               <span className="hidden text-xs font-medium text-slate-500 dark:text-slate-400 sm:block">
                 Modern landing kit

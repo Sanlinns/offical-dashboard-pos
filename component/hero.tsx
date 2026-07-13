@@ -1,6 +1,8 @@
+
 // "use client";
 
-// import { useState } from "react";
+// import { useEffect, useRef, useState } from "react";
+// import Image from "next/image";
 // import Link from "next/link";
 // import { AnimatePresence, motion } from "motion/react";
 // import {
@@ -31,9 +33,11 @@
 // import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 // import { Terminal } from "./ui/terminal";
 // import { PosFeatureIsometricSection } from "./pos-feature-isometric-section";
-// import { TracingBeamSection } from "./tracingBeamDemo";
 // import Footer from "@/components/footer";
 // import AnimatedBadge from "@/components/ui/animated-badge";
+
+// const BRAND_NAME = "Binhlaig";
+// const BRAND_ICON = "/logo/bg.png";
 
 // type NavChild = {
 //   title: string;
@@ -56,7 +60,8 @@
 //       {
 //         title: "Fast Cashier POS",
 //         href: "#cashier-pos",
-//         description: "Sell faster with barcode scan, cart, payment and receipt.",
+//         description:
+//           "Sell faster with barcode scan, cart, payment and receipt.",
 //         icon: ShoppingCart,
 //       },
 //       {
@@ -85,19 +90,19 @@
 //     children: [
 //       {
 //         title: "Supermarket POS",
-//         href: "supermarket",
+//         href: "/supermarket",
 //         description: "Barcode-first checkout for mini marts and supermarkets.",
 //         icon: Store,
 //       },
 //       {
 //         title: "Restaurant POS",
-//         href: "restaurant",
+//         href: "/restaurant",
 //         description: "Tables, orders, kitchen view and payment workflow.",
 //         icon: Utensils,
 //       },
 //       {
 //         title: "Fashion Store",
-//         href: "fashion",
+//         href: "/fashion",
 //         description: "Product variants, categories and fast selling screen.",
 //         icon: PackageCheck,
 //       },
@@ -150,6 +155,38 @@
 // export default function HeroPage() {
 //   const [darkMode, setDarkMode] = useState(true);
 //   const [mobileOpen, setMobileOpen] = useState(false);
+//   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+//   const desktopNavRef = useRef<HTMLElement>(null);
+
+//   useEffect(() => {
+//     const handlePointerDown = (event: PointerEvent) => {
+//       if (
+//         desktopNavRef.current &&
+//         !desktopNavRef.current.contains(event.target as Node)
+//       ) {
+//         setActiveDropdown(null);
+//       }
+//     };
+
+//     const handleKeyDown = (event: KeyboardEvent) => {
+//       if (event.key === "Escape") {
+//         setActiveDropdown(null);
+//         setMobileOpen(false);
+//       }
+//     };
+
+//     document.addEventListener("pointerdown", handlePointerDown);
+//     document.addEventListener("keydown", handleKeyDown);
+
+//     return () => {
+//       document.removeEventListener("pointerdown", handlePointerDown);
+//       document.removeEventListener("keydown", handleKeyDown);
+//     };
+//   }, []);
+
+//   const toggleDropdown = (title: string) => {
+//     setActiveDropdown((current) => (current === title ? null : title));
+//   };
 
 //   return (
 //     <main
@@ -187,24 +224,25 @@
 //         <header className="relative z-30 flex items-center justify-between px-5 py-6 md:px-8 lg:px-10">
 //           <div className="flex items-center gap-3">
 //             <Link href="/" className="flex items-center gap-3">
-//               <div
-//                 className={`flex h-10 w-10 items-center justify-center rounded-xl border shadow-sm transition ${
-//                   darkMode
-//                     ? "border-white/15 bg-white/10 text-white"
-//                     : "border-slate-200 bg-slate-950 text-white"
-//                 }`}
-//               >
-//                 <Store className="h-5 w-5" />
-//               </div>
+//               <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl">
+//                 <Image
+//                   src={BRAND_ICON}
+//                   alt={`${BRAND_NAME} brand icon`}
+//                   fill
+//                   priority
+//                   sizes="40px"
+//                   className="object-contain"
+//                 />
+//               </span>
 
 //               <span
-//                 className={`text-xl font-bold tracking-tight md:text-2xl ${
+//                 className={`hidden text-xl font-bold tracking-tight xl:inline xl:text-2xl ${
 //                   darkMode
 //                     ? "text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.55)]"
 //                     : "text-slate-950"
 //                 }`}
 //               >
-//                 Sakura POS
+//                 {BRAND_NAME}
 //               </span>
 //             </Link>
 
@@ -225,92 +263,148 @@
 //             </button>
 //           </div>
 
-//           {/* Desktop Navbar */}
+//           {/* Desktop / iPad Navbar */}
 //           <nav
+//             ref={desktopNavRef}
 //             className={`hidden items-center gap-2 text-sm font-semibold md:flex ${
 //               darkMode ? "text-white/72" : "text-slate-700"
 //             }`}
 //           >
-//             {navItems.map((item) => (
-//               <div key={item.title} className="group relative">
-//                 <Link
-//                   href={item.href}
-//                   className={`flex items-center gap-1 rounded-full px-4 py-2 transition ${
-//                     darkMode
-//                       ? "hover:bg-white/10 hover:text-white"
-//                       : "hover:bg-slate-950/5 hover:text-slate-950"
-//                   }`}
-//                 >
-//                   {item.title}
-//                   {item.children && item.children.length > 0 && (
-//                     <ChevronDown className="h-4 w-4 transition group-hover:rotate-180" />
-//                   )}
-//                 </Link>
+//             {navItems.map((item) => {
+//               const hasChildren = Boolean(item.children?.length);
+//               const isOpen = activeDropdown === item.title;
 
-//                 {item.children && item.children.length > 0 && (
-//                   <div className="pointer-events-none absolute right-0 top-full pt-3 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-//                     <div
-//                       className={`w-[390px] translate-y-2 rounded-3xl border p-3 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition duration-200 group-hover:translate-y-0 ${
+//               return (
+//                 <div
+//                   key={item.title}
+//                   className="relative"
+//                   onMouseEnter={() => {
+//                     if (
+//                       window.matchMedia("(hover: hover)").matches &&
+//                       hasChildren
+//                     ) {
+//                       setActiveDropdown(item.title);
+//                     }
+//                   }}
+//                   onMouseLeave={() => {
+//                     if (window.matchMedia("(hover: hover)").matches) {
+//                       setActiveDropdown(null);
+//                     }
+//                   }}
+//                 >
+//                   {hasChildren ? (
+//                     <button
+//                       type="button"
+//                       onClick={() => toggleDropdown(item.title)}
+//                       className={`flex touch-manipulation items-center gap-1 rounded-full px-4 py-2 transition ${
 //                         darkMode
-//                           ? "border-white/12 bg-slate-950/84"
-//                           : "border-white/80 bg-white/90"
+//                           ? "hover:bg-white/10 hover:text-white"
+//                           : "hover:bg-slate-950/5 hover:text-slate-950"
+//                       } ${isOpen ? (darkMode ? "bg-white/10 text-white" : "bg-slate-950/5 text-slate-950") : ""}`}
+//                       aria-expanded={isOpen}
+//                       aria-haspopup="menu"
+//                       aria-controls={`nav-dropdown-${item.title.toLowerCase()}`}
+//                     >
+//                       {item.title}
+//                       <ChevronDown
+//                         className={`h-4 w-4 transition-transform duration-200 ${
+//                           isOpen ? "rotate-180" : ""
+//                         }`}
+//                       />
+//                     </button>
+//                   ) : (
+//                     <Link
+//                       href={item.href}
+//                       className={`flex items-center gap-1 rounded-full px-4 py-2 transition ${
+//                         darkMode
+//                           ? "hover:bg-white/10 hover:text-white"
+//                           : "hover:bg-slate-950/5 hover:text-slate-950"
 //                       }`}
 //                     >
-//                       <div className="grid gap-1">
-//                         {item.children.map((child) => {
-//                           const Icon = child.icon;
+//                       {item.title}
+//                     </Link>
+//                   )}
 
-//                           return (
-//                             <Link
-//                               key={child.title}
-//                               href={child.href}
-//                               className={`group/item flex gap-3 rounded-2xl p-3 transition ${
-//                                 darkMode
-//                                   ? "hover:bg-white/10"
-//                                   : "hover:bg-slate-100"
-//                               }`}
-//                             >
-//                               <span
-//                                 className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl border ${
-//                                   darkMode
-//                                     ? "border-white/10 bg-white/8 text-white"
-//                                     : "border-slate-200 bg-white text-slate-950"
-//                                 }`}
-//                               >
-//                                 <Icon className="h-5 w-5" />
-//                               </span>
+//                   <AnimatePresence>
+//                     {hasChildren && isOpen && (
+//                       <motion.div
+//                         id={`nav-dropdown-${item.title.toLowerCase()}`}
+//                         role="menu"
+//                         initial={{ opacity: 0, y: 8, scale: 0.98 }}
+//                         animate={{ opacity: 1, y: 0, scale: 1 }}
+//                         exit={{ opacity: 0, y: 8, scale: 0.98 }}
+//                         transition={{ duration: 0.16 }}
+//                         className="absolute right-0 top-full z-50 pt-3"
+//                       >
+//                         <div
+//                           className={`w-[390px] rounded-3xl border p-3 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl ${
+//                             darkMode
+//                               ? "border-white/12 bg-slate-950/92"
+//                               : "border-white/80 bg-white/95"
+//                           }`}
+//                         >
+//                           <div className="grid gap-1">
+//                             {item.children?.map((child) => {
+//                               const Icon = child.icon;
 
-//                               <span>
-//                                 <span
-//                                   className={`block font-bold ${
-//                                     darkMode ? "text-white" : "text-slate-950"
-//                                   }`}
-//                                 >
-//                                   {child.title}
-//                                 </span>
-//                                 <span
-//                                   className={`mt-1 block text-xs leading-5 ${
+//                               return (
+//                                 <Link
+//                                   key={child.title}
+//                                   href={child.href}
+//                                   role="menuitem"
+//                                   onClick={() => setActiveDropdown(null)}
+//                                   className={`flex touch-manipulation gap-3 rounded-2xl p-3 transition ${
 //                                     darkMode
-//                                       ? "text-white/58"
-//                                       : "text-slate-600"
+//                                       ? "hover:bg-white/10 active:bg-white/15"
+//                                       : "hover:bg-slate-100 active:bg-slate-200"
 //                                   }`}
 //                                 >
-//                                   {child.description}
-//                                 </span>
-//                               </span>
-//                             </Link>
-//                           );
-//                         })}
-//                       </div>
-//                     </div>
-//                   </div>
-//                 )}
-//               </div>
-//             ))}
+//                                   <span
+//                                     className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl border ${
+//                                       darkMode
+//                                         ? "border-white/10 bg-white/8 text-white"
+//                                         : "border-slate-200 bg-white text-slate-950"
+//                                     }`}
+//                                   >
+//                                     <Icon className="h-5 w-5" />
+//                                   </span>
+
+//                                   <span>
+//                                     <span
+//                                       className={`block font-bold ${
+//                                         darkMode
+//                                           ? "text-white"
+//                                           : "text-slate-950"
+//                                       }`}
+//                                     >
+//                                       {child.title}
+//                                     </span>
+//                                     <span
+//                                       className={`mt-1 block text-xs leading-5 ${
+//                                         darkMode
+//                                           ? "text-white/58"
+//                                           : "text-slate-600"
+//                                       }`}
+//                                     >
+//                                       {child.description}
+//                                     </span>
+//                                   </span>
+//                                 </Link>
+//                               );
+//                             })}
+//                           </div>
+//                         </div>
+//                       </motion.div>
+//                     )}
+//                   </AnimatePresence>
+//                 </div>
+//               );
+//             })}
 
 //             <Link
 //               href="#demo"
-//               className={`ml-3 flex items-center gap-3 rounded-xl border px-2 py-2 font-bold transition hover:scale-[1.03] ${
+//               onClick={() => setActiveDropdown(null)}
+//               className={`ml-3 flex touch-manipulation items-center gap-3 rounded-xl border px-2 py-2 font-bold transition hover:scale-[1.03] ${
 //                 darkMode
 //                   ? "border-white/20 bg-white text-slate-950 shadow-[0_8px_25px_rgba(0,0,0,0.45)]"
 //                   : "border-slate-950/10 bg-slate-950 text-white shadow-[0_8px_25px_rgba(0,0,0,0.22)]"
@@ -472,10 +566,7 @@
 //                 animate={{ opacity: 1, y: 0 }}
 //                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
 //               >
-
 //                 <AnimatedBadge color="#38bdf8" />
-
-
 
 //                 <div
 //                   className={`mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold backdrop-blur-xl ${
@@ -539,8 +630,14 @@
 //                       : "border-slate-950/10 bg-slate-950 text-white shadow-[0_10px_25px_rgba(0,0,0,0.25)]"
 //                   }`}
 //                 >
-//                   <span className="grid h-8 w-8 place-items-center rounded-lg bg-amber-400 text-black shadow-[0_0_18px_rgba(251,191,36,0.45)]">
-//                     <Store className="h-4 w-4" />
+//                   <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+//                     <Image
+//                       src={BRAND_ICON}
+//                       alt=""
+//                       fill
+//                       sizes="32px"
+//                       className="object-contain"
+//                     />
 //                   </span>
 //                   Start POS
 //                 </Link>
@@ -644,7 +741,7 @@
 //                 </div>
 
 //                 <Terminal
-//                   username="sakura-pos"
+//                   username="binhlaig-pos"
 //                   typingSpeed={38}
 //                   delayBetweenCommands={900}
 //                   initialDelay={400}
@@ -680,10 +777,15 @@
 //       <PosFeatureIsometricSection darkMode={darkMode} />
 //       {/* <TracingBeamSection darkMode={darkMode} /> */}
 //       <Footer darkMode={darkMode} />
-      
 //     </main>
 //   );
 // }
+
+
+
+
+
+
 
 
 
@@ -736,7 +838,8 @@ import Footer from "@/components/footer";
 import AnimatedBadge from "@/components/ui/animated-badge";
 
 const BRAND_NAME = "Binhlaig";
-const BRAND_ICON = "/logo/bg.png";
+const BRAND_ICON_LIGHT = "/logo/bg.png";
+const BRAND_ICON_DARK = "/logo/bg_white.png";
 
 type NavChild = {
   title: string;
@@ -925,7 +1028,7 @@ export default function HeroPage() {
             <Link href="/" className="flex items-center gap-3">
               <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl">
                 <Image
-                  src={BRAND_ICON}
+                  src={darkMode ? BRAND_ICON_DARK : BRAND_ICON_LIGHT}
                   alt={`${BRAND_NAME} brand icon`}
                   fill
                   priority
@@ -1331,7 +1434,7 @@ export default function HeroPage() {
                 >
                   <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
                     <Image
-                      src={BRAND_ICON}
+                      src={darkMode ? BRAND_ICON_LIGHT : BRAND_ICON_DARK}
                       alt=""
                       fill
                       sizes="32px"

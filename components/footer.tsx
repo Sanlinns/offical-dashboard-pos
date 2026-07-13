@@ -9,6 +9,13 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
 } from "@tabler/icons-react";
+import Image from "next/image";
+
+
+const BRAND_NAME = "Binhlaig";
+const BRAND_ICON_LIGHT = "/logo/bg.png";
+const BRAND_ICON_DARK = "/logo/bg_white.png";
+
 
 type FooterProps = {
   darkMode: boolean;
@@ -53,23 +60,20 @@ export default function Footer({ darkMode }: FooterProps) {
 
   return (
     <footer
-      className={`relative mt-auto overflow-hidden border-t transition-colors duration-500 ${
-        darkMode
+      className={`relative mt-auto overflow-hidden border-t transition-colors duration-500 ${darkMode
           ? "border-white/10 bg-slate-950 text-white"
           : "border-slate-200 bg-slate-50 text-slate-950"
-      }`}
+        }`}
     >
       {/* background effects */}
       <div className="pointer-events-none absolute inset-0">
         <div
-          className={`absolute -left-24 top-10 h-72 w-72 rounded-full blur-3xl ${
-            darkMode ? "bg-cyan-400/10" : "bg-blue-500/10"
-          }`}
+          className={`absolute -left-24 top-10 h-72 w-72 rounded-full blur-3xl ${darkMode ? "bg-cyan-400/10" : "bg-blue-500/10"
+            }`}
         />
         <div
-          className={`absolute -right-24 bottom-0 h-72 w-72 rounded-full blur-3xl ${
-            darkMode ? "bg-amber-300/10" : "bg-purple-500/10"
-          }`}
+          className={`absolute -right-24 bottom-0 h-72 w-72 rounded-full blur-3xl ${darkMode ? "bg-amber-300/10" : "bg-purple-500/10"
+            }`}
         />
       </div>
 
@@ -78,28 +82,29 @@ export default function Footer({ darkMode }: FooterProps) {
           {/* Brand */}
           <div>
             <Link href="/" className="inline-flex items-center gap-2">
-              <div
-                className={`flex h-10 w-10 items-center justify-center rounded-2xl shadow-lg ${
-                  darkMode
-                    ? "border border-white/15 bg-white/10 text-white"
-                    : "bg-slate-950 text-white"
-                }`}
-              >
-                <Sparkles className="h-5 w-5" />
-              </div>
+             
+
+              <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+                <Image
+                  // src={BRAND_ICON}
+                    src={darkMode ? BRAND_ICON_DARK : BRAND_ICON_LIGHT}
+                  alt=""
+                  fill
+                  sizes="32px"
+                  className="object-contain"
+                />
+              </span>
 
               <div>
                 <p
-                  className={`text-lg font-bold tracking-tight ${
-                    darkMode ? "text-white" : "text-slate-950"
-                  }`}
+                  className={`text-lg font-bold tracking-tight ${darkMode ? "text-white" : "text-slate-950"
+                    }`}
                 >
-                  Smart POS
+                  Binhlaig
                 </p>
                 <p
-                  className={`text-xs ${
-                    darkMode ? "text-white/55" : "text-slate-500"
-                  }`}
+                  className={`text-xs ${darkMode ? "text-white/55" : "text-slate-500"
+                    }`}
                 >
                   Supermarket & Restaurant System
                 </p>
@@ -107,42 +112,37 @@ export default function Footer({ darkMode }: FooterProps) {
             </Link>
 
             <p
-              className={`mt-5 max-w-md text-sm leading-6 ${
-                darkMode ? "text-white/62" : "text-slate-600"
-              }`}
+              className={`mt-5 max-w-md text-sm leading-6 ${darkMode ? "text-white/62" : "text-slate-600"
+                }`}
             >
               Manage sales, products, receipts, staff, inventory and analytics
               from one clean POS dashboard.
             </p>
 
             <div
-              className={`mt-6 space-y-3 text-sm ${
-                darkMode ? "text-white/62" : "text-slate-600"
-              }`}
+              className={`mt-6 space-y-3 text-sm ${darkMode ? "text-white/62" : "text-slate-600"
+                }`}
             >
               <div className="flex items-center gap-3">
                 <Mail
-                  className={`h-4 w-4 ${
-                    darkMode ? "text-white" : "text-slate-950"
-                  }`}
+                  className={`h-4 w-4 ${darkMode ? "text-white" : "text-slate-950"
+                    }`}
                 />
                 <span>support@smartpos.com</span>
               </div>
 
               <div className="flex items-center gap-3">
                 <Phone
-                  className={`h-4 w-4 ${
-                    darkMode ? "text-white" : "text-slate-950"
-                  }`}
+                  className={`h-4 w-4 ${darkMode ? "text-white" : "text-slate-950"
+                    }`}
                 />
                 <span>+81 90 0000 0000</span>
               </div>
 
               <div className="flex items-center gap-3">
                 <MapPin
-                  className={`h-4 w-4 ${
-                    darkMode ? "text-white" : "text-slate-950"
-                  }`}
+                  className={`h-4 w-4 ${darkMode ? "text-white" : "text-slate-950"
+                    }`}
                 />
                 <span>Tokyo, Japan</span>
               </div>
@@ -154,9 +154,8 @@ export default function Footer({ darkMode }: FooterProps) {
             {footerLinks.map((group) => (
               <div key={group.title}>
                 <h3
-                  className={`text-sm font-semibold ${
-                    darkMode ? "text-white" : "text-slate-950"
-                  }`}
+                  className={`text-sm font-semibold ${darkMode ? "text-white" : "text-slate-950"
+                    }`}
                 >
                   {group.title}
                 </h3>
@@ -166,11 +165,10 @@ export default function Footer({ darkMode }: FooterProps) {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className={`text-sm transition ${
-                          darkMode
+                        className={`text-sm transition ${darkMode
                             ? "text-white/55 hover:text-white"
                             : "text-slate-600 hover:text-slate-950"
-                        }`}
+                          }`}
                       >
                         {link.label}
                       </Link>
@@ -184,14 +182,12 @@ export default function Footer({ darkMode }: FooterProps) {
 
         {/* Bottom */}
         <div
-          className={`mt-12 flex flex-col gap-5 border-t pt-6 sm:flex-row sm:items-center sm:justify-between ${
-            darkMode ? "border-white/10" : "border-slate-200"
-          }`}
+          className={`mt-12 flex flex-col gap-5 border-t pt-6 sm:flex-row sm:items-center sm:justify-between ${darkMode ? "border-white/10" : "border-slate-200"
+            }`}
         >
           <p
-            className={`text-sm ${
-              darkMode ? "text-white/50" : "text-slate-500"
-            }`}
+            className={`text-sm ${darkMode ? "text-white/50" : "text-slate-500"
+              }`}
           >
             © {year ?? ""} Smart POS. All rights reserved.
           </p>
@@ -210,11 +206,10 @@ export default function Footer({ darkMode }: FooterProps) {
                   key={item.label}
                   href="#"
                   aria-label={item.label}
-                  className={`flex h-9 w-9 items-center justify-center rounded-full border transition hover:-translate-y-0.5 hover:shadow-md ${
-                    darkMode
+                  className={`flex h-9 w-9 items-center justify-center rounded-full border transition hover:-translate-y-0.5 hover:shadow-md ${darkMode
                       ? "border-white/10 bg-white/5 text-white/55 hover:bg-white/10 hover:text-white"
                       : "border-slate-200 bg-white text-slate-600 hover:text-slate-950"
-                  }`}
+                    }`}
                 >
                   <Icon className="h-4 w-4" />
                 </Link>
