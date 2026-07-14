@@ -19,6 +19,7 @@ import RestaurantFeaturesSection from "./restaurant/restaurantFeaturesSection";
 import RestaurantWorkflowSection from "./restaurant/RestaurantWorkflowSection";
 import RestaurantMenuTableSection from "./restaurant/RestaurantMenuTableSection";
 import RestaurantFooter from "./restaurant/RestaurantFooter";
+import Image from "next/image";
 
 const navLinks = [
     { label: "Home", href: "/" },
@@ -27,6 +28,10 @@ const navLinks = [
     { label: "Pricing", href: "#pricing" },
     { label: "Contact", href: "#contact" },
 ];
+
+const BRAND_NAME = "Binhlaig";
+const BRAND_ICON_LIGHT = "/logo/bg.png";
+const BRAND_ICON_DARK = "/logo/bg_darkmode.png";
 
 export function ImagesSliderDemo() {
     const [open, setOpen] = useState(false);
@@ -85,10 +90,18 @@ export function ImagesSliderDemo() {
                 <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-white/70 bg-white/80 px-4 shadow-xl shadow-slate-900/10 backdrop-blur-2xl transition-all duration-300 dark:border-white/10 dark:bg-slate-950/70 dark:shadow-black/30 sm:px-6 lg:px-8">
                     {/* Logo */}
                     <Link href="/" className="group flex items-center gap-3">
-                        <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 text-white shadow-lg shadow-orange-600/25 transition group-hover:scale-105">
-                            <Utensils className="h-5 w-5" />
-                            <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-white dark:ring-slate-950" />
-                        </div>
+
+                        <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+                            <Image
+                                // src={BRAND_ICON}
+                                src={darkMode ? BRAND_ICON_DARK : BRAND_ICON_LIGHT}
+                                alt=""
+                                fill
+                                sizes="32px"
+                                className="object-contain"
+                            />
+                        </span>
+
 
                         <div className="leading-tight">
                             <span className="block text-base font-black tracking-tight text-slate-950 dark:text-white">
@@ -280,13 +293,13 @@ export function ImagesSliderDemo() {
                 </motion.div>
             </ImagesSlider>
 
-            <RestaurantFeaturesSection/>
-            <RestaurantWorkflowSection/>
-            <RestaurantMenuTableSection/>
-            <RestaurantFooter/>
+            <RestaurantFeaturesSection />
+            <RestaurantWorkflowSection />
+            <RestaurantMenuTableSection />
+            <RestaurantFooter />
 
 
-          
+
         </section>
     );
 }

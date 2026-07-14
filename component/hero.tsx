@@ -839,7 +839,7 @@ import AnimatedBadge from "@/components/ui/animated-badge";
 
 const BRAND_NAME = "Binhlaig";
 const BRAND_ICON_LIGHT = "/logo/bg.png";
-const BRAND_ICON_DARK = "/logo/bg_white.png";
+const BRAND_ICON_DARK = "/logo/bg_darkmode.png";
 
 type NavChild = {
   title: string;

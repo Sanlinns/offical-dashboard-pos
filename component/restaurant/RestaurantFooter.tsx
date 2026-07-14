@@ -8,7 +8,8 @@ import {
   Phone,
   Utensils,
 } from "lucide-react";
-import { IconBrandFacebook ,IconBrandTwitter } from "@tabler/icons-react";
+import { IconBrandFacebook, IconBrandTwitter } from "@tabler/icons-react";
+import Image from "next/image";
 
 const footerLinks = [
   {
@@ -40,7 +41,14 @@ const footerLinks = [
   },
 ];
 
+
+const BRAND_NAME = "Binhlaig";
+const BRAND_ICON_LIGHT = "/logo/bg.png";
+const BRAND_ICON_DARK = "/logo/bg_darkmode.png";
+
 export default function RestaurantFooter() {
+  const darkMode = false;
+
   return (
     <footer
       id="contact"
@@ -100,10 +108,16 @@ export default function RestaurantFooter() {
           {/* Brand */}
           <div>
             <Link href="/" className="group inline-flex items-center gap-3">
-              <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 text-white shadow-lg shadow-orange-600/25 transition group-hover:scale-105">
-                <Utensils className="h-5 w-5" />
-                <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-orange-50 dark:ring-slate-950" />
-              </div>
+              <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+                <Image
+                  // src={BRAND_ICON}
+                  src={darkMode ? BRAND_ICON_DARK : BRAND_ICON_LIGHT}
+                  alt=""
+                  fill
+                  sizes="32px"
+                  className="object-contain"
+                />
+              </span>
 
               <div className="leading-tight">
                 <span className="block text-lg font-black tracking-tight text-slate-950 dark:text-white">
@@ -179,7 +193,7 @@ export default function RestaurantFooter() {
               <IconBrandFacebook className="h-4 w-4" />
             </Link>
 
-          
+
             <Link
               href="#"
               aria-label="Twitter"

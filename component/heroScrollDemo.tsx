@@ -31,7 +31,8 @@ import Image from "next/image";
 
 
 const BRAND_NAME = "Binhlaig";
-const BRAND_ICON = "/logo/bg.png";
+const BRAND_ICON_LIGHT = "/logo/bg.png";
+const BRAND_ICON_DARK = "/logo/bg_darkmode.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -361,7 +362,7 @@ export function HeroScrollDemo() {
 
             <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
               <Image
-                src={BRAND_ICON}
+                src={darkMode ? BRAND_ICON_DARK : BRAND_ICON_LIGHT}
                 alt=""
                 fill
                 sizes="32px"
