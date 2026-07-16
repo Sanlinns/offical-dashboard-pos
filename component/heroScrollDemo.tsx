@@ -34,6 +34,7 @@ const BRAND_NAME = "Binhlaig";
 const BRAND_ICON_LIGHT = "/logo/bg.png";
 const BRAND_ICON_DARK = "/logo/bg_darkmode.png";
 
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Features", href: "#features" },

@@ -9,6 +9,7 @@ import {
   ShoppingBag,
   Sparkles,
 } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = [
   {
@@ -40,7 +41,19 @@ const footerLinks = [
   },
 ];
 
-export default function FashionFooter() {
+
+type FooterProps = {
+  darkMode: boolean;
+};
+
+
+
+const BRAND_NAME = "Binhlaig";
+const BRAND_ICON_LIGHT = "/logo/bg.png";
+const BRAND_ICON_DARK = "/logo/bg_darkmode.png";
+
+
+export default function FashionFooter({ darkMode }: FooterProps) {
   return (
     <footer
       id="contact"
@@ -100,10 +113,21 @@ export default function FashionFooter() {
           {/* Brand */}
           <div>
             <Link href="/" className="group inline-flex items-center gap-3">
-              <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-violet-600 text-white shadow-lg shadow-pink-600/25 transition group-hover:scale-105">
+              {/* <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-violet-600 text-white shadow-lg shadow-pink-600/25 transition group-hover:scale-105">
                 <ShoppingBag className="h-5 w-5" />
                 <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-rose-50 dark:ring-slate-950" />
-              </div>
+              </div> */}
+
+
+               <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+                            <Image
+                              src={darkMode ? BRAND_ICON_DARK : BRAND_ICON_LIGHT}
+                              alt=""
+                              fill
+                              sizes="32px"
+                              className="object-contain"
+                            />
+                          </span>
 
               <div className="leading-tight">
                 <span className="block text-lg font-black tracking-tight text-slate-950 dark:text-white">

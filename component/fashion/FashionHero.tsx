@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -26,6 +27,12 @@ const fashionImages = [
   "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=900&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=900&auto=format&fit=crop",
 ];
+
+
+const BRAND_NAME = "Binhlaig";
+const BRAND_ICON_LIGHT = "/logo/bg.png";
+const BRAND_ICON_DARK = "/logo/bg_darkmode.png";
+
 
 export function FashionHeroPage() {
   const [open, setOpen] = useState(false);
@@ -83,10 +90,21 @@ export function FashionHeroPage() {
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-white/80 bg-white/80 px-4 shadow-xl shadow-rose-950/10 backdrop-blur-2xl transition-all duration-300 dark:border-white/10 dark:bg-slate-950/70 dark:shadow-black/30 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-violet-600 text-white shadow-lg shadow-pink-600/25 transition group-hover:scale-105">
+            {/* <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-violet-600 text-white shadow-lg shadow-pink-600/25 transition group-hover:scale-105">
               <ShoppingBag className="h-5 w-5" />
               <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-white dark:ring-slate-950" />
-            </div>
+            </div> */}
+
+
+            <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+              <Image
+                src={darkMode ? BRAND_ICON_DARK : BRAND_ICON_LIGHT}
+                alt=""
+                fill
+                sizes="32px"
+                className="object-contain"
+              />
+            </span>
 
             <div className="leading-tight">
               <span className="block text-base font-black tracking-tight text-slate-950 dark:text-white">

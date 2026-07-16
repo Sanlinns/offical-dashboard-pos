@@ -1,3 +1,7 @@
+
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import FashionFooter from '@/component/fashion/ FashionFooter'
 import FashionCollectionStore from '@/component/fashion/FashionCollectionStore'
 import { FashionHeroPage } from '@/component/fashion/FashionHero'
@@ -5,9 +9,11 @@ import FashionPOSFeaturesSection from '@/component/fashion/FashionPOSFeaturesSec
 import FashionPOSWorkflowSection from '@/component/fashion/FashionPOSWorkflowSection'
 import FashionStockVariantSection from '@/component/fashion/FashionStockVariantSection '
 import Footer from '@/components/footer'
-import React from 'react'
+
 
 const page = () => {
+
+    const [darkMode, setDarkMode] = React.useState(false);
   return (
     <div>
         <FashionHeroPage/>
@@ -15,7 +21,7 @@ const page = () => {
         <FashionPOSFeaturesSection/>
         <FashionPOSWorkflowSection/>
         <FashionStockVariantSection/>
-        <FashionFooter/>
+        <FashionFooter darkMode={darkMode}/>
         
     </div>
   )
