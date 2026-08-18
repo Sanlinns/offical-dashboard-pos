@@ -1204,7 +1204,7 @@ export default function HeroPage() {
             })}
 
             <Link
-              href="#demo"
+              href="/demo"
               onClick={() => setActiveDropdown(null)}
               className={`ml-3 flex touch-manipulation items-center gap-3 rounded-xl border px-2 py-2 font-bold transition hover:scale-[1.03] ${
                 darkMode
@@ -1341,7 +1341,7 @@ export default function HeroPage() {
                   ))}
 
                   <Link
-                    href="#demo"
+                    href="/demo"
                     onClick={() => setMobileOpen(false)}
                     className={`mt-3 flex items-center justify-center gap-3 rounded-2xl border px-3 py-3 font-bold ${
                       darkMode
