@@ -449,7 +449,7 @@ function SortableStatCard({ item, theme }: { item: StatCardItem; theme: ThemeMod
         <div className="relative p-5">
           <div className="flex items-start justify-between">
             <div
-              className="flex h-11 w-11 items-center justify-center rounded-xl"
+              className="flex h-11 w-11 items-center justify-center rounded-xl "
               style={{ background: `${item.accent}18`, border: `1px solid ${item.accent}45` }}
             >
               <Icon className="h-5 w-5" style={{ color: item.accent }} />
@@ -948,6 +948,7 @@ function SalesAnalyticsDashboardContent() {
         </motion.div>
 
         {/* KPI Cards */}
+
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={cardOrder} strategy={rectSortingStrategy}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
