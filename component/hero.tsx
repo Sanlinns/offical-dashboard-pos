@@ -1001,7 +1001,7 @@ export default function HeroPage() {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="/hero-bg.png"
+            src="/hero_image.jpg"
             alt="POS background"
             className="h-full w-full object-cover"
           />
