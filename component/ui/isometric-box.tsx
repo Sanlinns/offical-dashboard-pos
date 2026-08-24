@@ -86,6 +86,7 @@ export function IsometricBox({
               : "rgba(255,255,255,0.55)"
           }
           filter="url(#boxGlow)"
+          initial={{ opacity: 1 }}
           animate={
             opened
               ? { opacity: 0.95, scale: 1.06 }
@@ -106,6 +107,7 @@ export function IsometricBox({
               : "rgba(251,191,36,0.18)"
           }
           filter="url(#boxGlow)"
+          initial={{ opacity: 1 }}
           animate={
             opened
               ? { opacity: 1, scale: 1.05, y: -2 }
@@ -122,6 +124,7 @@ export function IsometricBox({
           ry="12"
           fill={darkMode ? "rgba(0,0,0,0.34)" : "rgba(15,23,42,0.08)"}
           filter="url(#softShadow)"
+          initial={{ opacity: 1 }}
           animate={
             opened
               ? { opacity: 0.75, scaleX: 1 }

@@ -374,7 +374,7 @@ export function HeroScrollDemo() {
             <div className="leading-tight">
               <span className="block text-base font-black tracking-tight text-slate-950 dark:text-white">
                 {/* ScrollUI */}
-                 {BRAND_NAME}
+                {BRAND_NAME}
               </span>
               <span className="hidden text-xs font-medium text-slate-500 dark:text-slate-400 sm:block">
                 Modern landing kit
@@ -518,7 +518,6 @@ export function HeroScrollDemo() {
                     View Demo
                   </Link>
                 </div>
-
                 <div className="mt-8 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
                   {stats.map((item) => (
                     <div
@@ -535,29 +534,27 @@ export function HeroScrollDemo() {
                     </div>
                   ))}
                 </div>
+
+
+
+
               </div>
             }
           >
+
+
             <div className="relative h-full w-full overflow-hidden rounded-2xl bg-slate-950">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10" />
-              {/* <img
-                src="/supermarketv1.0.png"
-                alt="hero"
-                height={720}
-                width={1400}
-                className="h-fullw-full object-contain"
-                draggable={false}
-              /> */}
-
-
-
               <picture className="relative z-10 flex h-full w-full items-center justify-center">
-                <source media="(max-width: 767px)" srcSet="/supermarket-mobile.png" />
-                <source media="(min-width: 768px)" srcSet="/supermarketv1.0.png" />
+
+                <source media="(max-width: 767px)" srcSet="/image/min-store.png" />
+                <source media="(min-width: 768px)" srcSet="/image/mini-store-pc.png" />
+                {/* <source media="(max-width: 767px)" srcSet="/supermarket-mobile.png" />
+                <source media="(min-width: 768px)" srcSet="/supermarketv1.0.png" /> */}
 
                 <img
                   // src="/supermarketv1.0.png"
-                  src="/image/min-store.png"
+                  src="/image/mini-store-pc.png"
                   alt="Supermarket POS preview"
                   height={720}
                   width={1400}
@@ -569,7 +566,14 @@ export function HeroScrollDemo() {
 
 
 
+
+
+
+
+
             </div>
+
+
           </ContainerScroll>
         </section>
 
