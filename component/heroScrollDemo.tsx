@@ -556,7 +556,8 @@ export function HeroScrollDemo() {
                 <source media="(min-width: 768px)" srcSet="/supermarketv1.0.png" />
 
                 <img
-                  src="/supermarketv1.0.png"
+                  // src="/supermarketv1.0.png"
+                  src="/image/min-store.png"
                   alt="Supermarket POS preview"
                   height={720}
                   width={1400}

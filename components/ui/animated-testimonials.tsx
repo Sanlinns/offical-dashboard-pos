@@ -399,9 +399,9 @@ export const AnimatedTestimonials = ({
               </button>
             </div>
 
-            <div className=" flex items-center">
+            {/* <div className=" flex items-center">
               <AnimatedTooltipPreview />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
