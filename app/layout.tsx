@@ -62,7 +62,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Smart POS",
   description: "Supermarket & Restaurant POS System",
+  other: {
+    "codex-preview": "development",
+  },
+  icons: {
+    icon: "/logo/bg_logo.png",
+    shortcut: "/logo/bg_logo.png",
+  },
 };
+
+
+
+
 
 export default function RootLayout({
   children,

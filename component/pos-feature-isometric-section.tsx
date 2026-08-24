@@ -103,7 +103,8 @@ const workflowContent: WorkflowContent[] = [
     ),
     badge: "Checkout",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1600",
+    "/image/pos_checkout_image_staff.png",
+      // "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1600",
   },
   {
     title: "Inventory and stock control",
@@ -122,7 +123,8 @@ const workflowContent: WorkflowContent[] = [
     ),
     badge: "Inventory",
     image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600",
+      // "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600",
+      "/image/invertor_page.png",
   },
   {
     title: "Receipts and sales reports",
@@ -141,7 +143,8 @@ const workflowContent: WorkflowContent[] = [
     ),
     badge: "Reports",
     image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600",
+      // "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600",
+      "/image/receipt_image.png"
   },
 ];
 
@@ -151,35 +154,41 @@ const testimonials = [
       "The POS checkout flow is fast and simple. Our cashier team can scan products, manage carts and print receipts without confusion.",
     name: "Sarah Chen",
     designation: "Mini Mart Owner",
-    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop",
+    src:"/image/pos_checkout.png",
+    // src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop",
+    
   },
   {
     quote:
       "Inventory tracking became much easier. Low stock, product movement and daily sales are now clear from one dashboard.",
     name: "Michael Rodriguez",
     designation: "Retail Operations Manager",
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop",
+    src:"/image/stock_display_image.png",
   },
   {
     quote:
       "The restaurant order workflow helped us manage tables, kitchen orders and payments more smoothly during busy hours.",
     name: "Emily Watson",
     designation: "Restaurant Manager",
-    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop",
+    src:"/image/restauran_testminial.png",
   },
   {
     quote:
       "Receipt history and reports save a lot of time. We can search, reprint and check daily sales without complicated steps.",
     name: "James Kim",
     designation: "Shop Admin",
-    src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop",
+     src:"/image/print_data_image.png",
   },
   {
     quote:
       "The system is clean, fast and suitable for growing shops. Staff roles and shop-based data control are very useful.",
     name: "Lisa Thompson",
     designation: "Business Owner",
-    src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop",
+    src:"/image/staff_role_image.png",
   },
 ];
 
