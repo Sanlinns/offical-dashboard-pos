@@ -43,18 +43,19 @@ export function BentoGridThirdDemo() {
         <header className="mx-auto mb-10 max-w-3xl text-center lg:mb-14">
           <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-50/80 px-3.5 py-2 text-xs font-bold tracking-wide text-blue-700 shadow-sm backdrop-blur dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-200">
             <IconShieldCheck aria-hidden="true" className="size-4" />
-            SUPERMARKET POS PLATFORM
+            MINI STORE POS PLATFORM
           </div>
+        
 
           <h2
             id="pos-features-title"
             className="text-balance text-3xl font-black tracking-[-0.045em] sm:text-4xl lg:text-6xl lg:leading-[1.08]"
           >
-            ဆိုင်လုပ်ငန်းကို{" "}
+             Run Your Business {" "}
             <span className="bg-gradient-to-r from-blue-600 via-violet-600 to-fuchsia-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-violet-400 dark:to-fuchsia-400">
-              ပိုမြန်၊ ပိုလွယ်၊ ပိုစနစ်ကျ
+              Faster, Easier, and Smarter 
             </span>{" "}
-            စေမယ့် POS System
+            with Our POS System
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">
@@ -78,7 +79,7 @@ export function BentoGridThirdDemo() {
           </ul>
         </header>
 
-        <BentoGrid className="mx-auto max-w-6xl gap-4 md:auto-rows-[21rem] lg:gap-5">
+        <BentoGrid className="mx-auto max-w-6xl gap-4 md:auto-rows-[25rem] lg:auto-rows-[27rem] lg:gap-5">
           {items.map((item) => (
             <BentoGridItem
               key={item.title}
@@ -123,8 +124,8 @@ function PreviewShell({
     >
       {children}
 
-      <div className="pointer-events-none absolute inset-0 z-30 grid place-items-center bg-slate-950/35 p-3 opacity-0 backdrop-blur-[2px] transition duration-300 group-hover/preview:opacity-100 group-focus/preview:opacity-100 motion-reduce:transition-none sm:p-5">
-        <div className="w-full max-w-sm translate-y-3 scale-[0.97] rounded-2xl border border-white/70 bg-white/95 p-4 text-left text-slate-950 opacity-0 shadow-2xl shadow-slate-950/25 backdrop-blur-xl transition duration-300 group-hover/preview:translate-y-0 group-hover/preview:scale-100 group-hover/preview:opacity-100 group-focus/preview:translate-y-0 group-focus/preview:scale-100 group-focus/preview:opacity-100 motion-reduce:transform-none motion-reduce:transition-none dark:border-white/15 dark:bg-slate-900/95 dark:text-white sm:p-5">
+      <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center bg-slate-950/35 p-2.5 opacity-0 backdrop-blur-[2px] transition duration-300 group-hover/preview:opacity-100 group-focus/preview:opacity-100 motion-reduce:transition-none sm:p-3 lg:p-4">
+        <div className="flex max-h-full w-full max-w-sm translate-y-3 scale-[0.97] flex-col overflow-hidden rounded-2xl border border-white/70 bg-white/95 p-3.5 text-left text-slate-950 opacity-0 shadow-2xl shadow-slate-950/25 backdrop-blur-xl transition duration-300 group-hover/preview:translate-y-0 group-hover/preview:scale-100 group-hover/preview:opacity-100 group-focus/preview:translate-y-0 group-focus/preview:scale-100 group-focus/preview:opacity-100 motion-reduce:transform-none motion-reduce:transition-none dark:border-white/15 dark:bg-slate-900/95 dark:text-white sm:p-4 lg:p-4.5">
           <div className="flex items-center justify-between gap-3">
             <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-blue-700 dark:bg-blue-400/10 dark:text-blue-300">
               {details.label}
@@ -133,17 +134,17 @@ function PreviewShell({
               HOVER PREVIEW
             </span>
           </div>
-          <p className="mt-3 text-base font-bold tracking-tight sm:text-lg">
+          <p className="mt-2.5 text-sm font-bold tracking-tight sm:text-base lg:text-lg">
             {details.title}
           </p>
-          <p className="mt-1.5 text-xs leading-5 text-slate-600 dark:text-slate-300 sm:text-sm sm:leading-6">
+          <p className="mt-1 text-[11px] leading-[1.15rem] text-slate-600 dark:text-slate-300 sm:text-xs sm:leading-5 lg:text-sm lg:leading-5">
             {details.description}
           </p>
-          <ul className="mt-3 grid gap-2">
+          <ul className="mt-2.5 grid gap-1.5 sm:gap-2">
             {details.points.map((point) => (
               <li
                 key={point}
-                className="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-slate-200"
+                className="flex items-center gap-2 text-[11px] font-medium leading-4 text-slate-700 dark:text-slate-200 sm:text-xs"
               >
                 <span className="grid size-4 shrink-0 place-items-center rounded-full bg-blue-100 text-blue-700 dark:bg-blue-400/15 dark:text-blue-300">
                   <IconCheck aria-hidden="true" className="size-2.5" />
@@ -235,7 +236,7 @@ function ProductPreview() {
       className="bg-[linear-gradient(145deg,#f8fafc,#eff6ff)] p-4 dark:bg-[linear-gradient(145deg,#0f172a,#111c35)] sm:p-5"
       details={{
         label: "Products",
-        title: "Products အားလုံးကို တစ်နေရာတည်းမှာ",
+        title: "Productsများကို တစ်နေရာထဲ",
         description:
           "ကုန်ပစ္စည်းအသစ်ထည့်ခြင်းမှ price နဲ့ discount update လုပ်ခြင်းအထိ လွယ်ကူစွာ စီမံနိုင်ပါတယ်။",
         points: ["SKU & barcode", "Category & pricing", "Discount control"],
@@ -456,7 +457,7 @@ function AlertsPreview() {
     <PreviewShell
       details={{
         label: "Smart alerts",
-        title: "အရေးကြီးတာတွေကို ချက်ချင်းသိပါ",
+        title: "အရေးကြီးတာတွေကို ချက်ချင်းသိ",
         description:
           "Low stock၊ receipt နဲ့ daily report အခြေအနေတွေကို dashboard ပေါ်မှာ အလွယ်တကူ စောင့်ကြည့်နိုင်ပါတယ်။",
         points: ["Low-stock alerts", "Receipt activity", "Daily sales report"],
@@ -504,7 +505,7 @@ function MiniStat({ label, value }: { label: string; value: string }) {
 }
 
 const descriptionClass =
-  "text-sm leading-6 text-slate-600 dark:text-slate-400";
+  "block text-sm leading-6 text-slate-600 dark:text-slate-400 md:min-h-[3rem] lg:text-[15px] lg:leading-7";
 const iconClass = "size-4 text-blue-600 dark:text-blue-400";
 
 const items = [

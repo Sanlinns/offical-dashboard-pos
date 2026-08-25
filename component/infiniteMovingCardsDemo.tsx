@@ -1,12 +1,11 @@
 "use client";
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import React, { useEffect, useState } from "react";
-
+import React from "react";
 
 export function InfiniteMovingCardsDemo() {
   return (
-    <div className="h-[30rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden">
+    <div className="h-[30rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
@@ -19,31 +18,32 @@ export function InfiniteMovingCardsDemo() {
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "Binhlaig POS နဲ့ checkout လုပ်ရတာ ပိုမြန်သွားပြီး barcode scan ကနေ payment နဲ့ receipt print အထိ အလုပ်လုပ်ရတာ အများကြီးလွယ်ကူလာပါတယ်။",
+    name: "Supermarket Owner",
+    title: "Fast Checkout",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+      "ကုန်ပစ္စည်းလက်ကျန်၊ stock အဝင်အထွက်နဲ့ low-stock items တွေကို dashboard တစ်ခုတည်းကနေ real-time စောင့်ကြည့်နိုင်တာ အရမ်းအသုံးဝင်ပါတယ်။",
+    name: "Store Manager",
+    title: "Inventory Control",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "Products, prices, discounts နဲ့ categories တွေကို တစ်နေရာတည်းမှာ စီမံနိုင်လို့ နေ့စဉ်ဆိုင်အလုပ်တွေ ပိုစနစ်ကျလာပါတယ်။",
+    name: "Shop Administrator",
+    title: "Product Management",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Cashier နဲ့ staff တစ်ယောက်ချင်းစီအတွက် role နဲ့ permission သတ်မှတ်နိုင်တာကြောင့် ဆိုင်ရဲ့လုပ်ငန်းပိုင်းကို ပိုလုံခြုံစွာ စီမံနိုင်ပါတယ်။",
+    name: "Business Owner",
+    title: "Staff & Role Management",
+  },
+  {
+    quote:
+      "Daily sales, receipts နဲ့ transaction history တွေကို report အဖြစ်ကြည့်နိုင်လို့ ဆိုင်ရဲ့အရောင်းအခြေအနေကို မြန်မြန်ဆုံးသိနိုင်ပါတယ်။",
+    name: "Store Owner",
+    title: "Sales & Reports",
   },
 ];
